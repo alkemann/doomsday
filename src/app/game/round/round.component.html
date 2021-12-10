@@ -1,0 +1,39 @@
+<div class="round" *ngIf="round">
+    <h3>{{round.date}}</h3>
+    <div class="days">
+        
+        <div class="button-container">
+            <button class="guess" (click)="guess(0)" mat-flat-button color="primary" aria-label="Guess Sunday">Sunday</button>
+        </div>
+        
+        <div class="button-container">
+            <button class="guess" (click)="guess(1)" mat-flat-button color="primary" aria-label="Guess Monday">Monday</button>
+        </div>
+        
+        <div class="button-container">
+            <button class="guess" (click)="guess(2)" mat-flat-button color="primary" aria-label="Guess Tuesday">Tuesday</button>
+        </div>
+        
+        <div class="button-container">
+            <button class="guess" (click)="guess(3)" mat-flat-button color="primary" aria-label="Guess Wednesday">Wednesday</button>
+        </div>
+        
+        <div class="button-container">
+            <button class="guess" (click)="guess(4)" mat-flat-button color="primary" aria-label="Guess Thursdag">Thursdag</button>
+        </div>
+        
+        <div class="button-container">
+            <button class="guess" (click)="guess(5)" mat-flat-button color="primary" aria-label="Guess Friday">Friday</button>
+        </div>
+        
+        <div class="button-container">
+            <button class="guess" (click)="guess(6)" mat-flat-button color="primary" aria-label="Guess Saturday">Saturday</button>
+        </div>
+    </div>
+    <div class="meta">
+        <span class="round-time" [innerText]="roundTime"></span>
+        <span class="game-time" [innerText]="gameTime"></span>
+        <mat-progress-bar color="accent" mode="determinate" [value]="progress"></mat-progress-bar>
+    </div>
+    
+</div>

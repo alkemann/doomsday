@@ -1,0 +1,13 @@
+<div *ngIf="round">
+
+    <h2>Round Results</h2>
+    <p *ngIf="round.correct === round.guess" color="accent">CORRECT!</p>
+    <p *ngIf="round.correct !== round.guess" color="warn">WRONG</p>
+
+    <div class="button-container">
+        <button (click)="this.next.emit()" mat-fab color="accent" aria-label="Start a new game">
+            <mat-icon>arrow_forward_ios</mat-icon>
+        </button>
+    </div>
+    
+</div>

@@ -1,0 +1,31 @@
+
+.round {
+    h3 {
+        width: 100%;
+        margin: 0.5em auto;
+        text-align: center;
+        font-size: 170%;
+        color: darkgreen;
+    }
+    .days {
+        .button-container {
+            margin: 0.35em 0;
+            button {
+                width: 100%;
+                font-size: larger;
+                padding: 0.4em ;
+            }
+        }
+    }
+    .round-time {
+        float: left;
+    }
+    .game-time {
+        float: right;
+    }
+    .meta {
+        clear: both;
+        overflow: hidden;
+        margin: 1em 0;
+    }
+}

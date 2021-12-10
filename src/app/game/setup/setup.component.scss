@@ -1,0 +1,13 @@
+.field {
+    mat-label {
+        color:hotpink;
+    }
+    margin-bottom: 0.6em;
+    span {
+        display: block;
+    }
+    .button-container {
+        display: inline-block;
+        margin-right: 1em;
+    }
+}

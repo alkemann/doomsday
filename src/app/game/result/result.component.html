@@ -1,0 +1,28 @@
+<div>
+    <h3>Results</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <!-- <th>Time</th> -->
+                <th>Guess</th>
+                <th>Real date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let round of rounds; index as i;">
+                <td>{{i + 1}}</td>
+                <!-- <td>{{round.timed}}</td> -->
+                <td>{{round.guess === round.correct ? "Y" : "N"}}  {{d[round.guess]}}</td>
+                <td>{{round.fullDate}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <div class="button-container">
+        <button (click)="this.restart.emit()" mat-fab color="accent" aria-label="Start a new game">
+            <mat-icon>arrow_forward_ios</mat-icon>
+        </button>
+    </div>
+</div>
