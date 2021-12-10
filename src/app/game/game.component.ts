@@ -24,6 +24,10 @@ export class GameComponent implements OnInit {
   rounds : Round[];
   roundIndex : number = 0;
 
+  private MON_TEXT :string[] = [
+    "Jan", "Feb", "Mar", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Des"
+  ];
+
   constructor() {
   }
 
@@ -39,9 +43,10 @@ export class GameComponent implements OnInit {
     this.rounds = [];
     const dates = this.randomDates(this.config.count);
     for (let index = 0; index < this.config.count; index++) {
+      const mon = this.MON_TEXT[dates[index].getMonth()];
       this.rounds[index] = {
         fullDate: dates[index].toDateString(),
-        date: dates[index].getDate() +'-'+ (dates[index].getMonth()+1)  +'-'+ dates[index].getFullYear()   ,
+        date: dates[index].getDate() +' '+ mon  +' '+ dates[index].getFullYear()   ,
         roundNumber: index,
         maxRounds: this.config.count,
         timed: 0,
