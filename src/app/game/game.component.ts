@@ -11,9 +11,9 @@ import { States } from '../states';
 export class GameComponent implements OnInit {
 
   public config: Config = {
-    startYear: 2021,
-    endYear: 2021,
-    count: 2,
+    startYear: 1900,
+    endYear: 2100,
+    count: 5,
     maxTime: 60
   }
 

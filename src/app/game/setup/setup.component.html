@@ -1,48 +1,47 @@
-    <fieldset>
-        <legend color="primary">Configure training session</legend>
-        <div class="field">
-            <mat-form-field class="setup-field">
-                <mat-label>Start Year</mat-label>
-                <input matInput placeholder="2021" type="number" [(ngModel)]="config.startYear" >
-            </mat-form-field>
-            <mat-slider thumbLabel min="1900" max="2100" step="10" [(ngModel)]="config.startYear"></mat-slider>
-        </div>
-        <div class="field">
+<h2 color="primary">Configure training session</h2>
 
-            <mat-form-field class="setup-field">
-                <mat-label>End Year</mat-label>
-                <input matInput placeholder="2021" type="number" [(ngModel)]="config.endYear" >
-            </mat-form-field>
-            <mat-slider thumbLabel min="1900" max="2100" step="10" [(ngModel)]="config.endYear"></mat-slider>
-        </div>
-        <div class="field">
+<div class="field">
+    <mat-form-field class="setup-field">
+        <mat-label>Start Year</mat-label>
+        <input matInput placeholder="2021" type="number" [(ngModel)]="config.startYear" >
+    </mat-form-field>
+    <mat-slider thumbLabel min="1900" max="2100" step="10" [(ngModel)]="config.startYear"></mat-slider>
+</div>
 
-            <mat-form-field class="setup-field">
-                <mat-label>How many dates?</mat-label>
-                <input matInput placeholder="10" type="number" [(ngModel)]="config.count" >
-            </mat-form-field>
-            <mat-slider thumbLabel min="1" max="20" step="1" [(ngModel)]="config.count"></mat-slider>
-        </div>
-        <div class="field">
+<div class="field">
+    <mat-form-field class="setup-field">
+        <mat-label>End Year</mat-label>
+        <input matInput placeholder="2021" type="number" [(ngModel)]="config.endYear" >
+    </mat-form-field>
+    <mat-slider thumbLabel min="1900" max="2100" step="10" [(ngModel)]="config.endYear"></mat-slider>
+</div>
 
-            <mat-form-field class="setup-field">
-                <mat-label>Time available (in seconds)</mat-label>
-                <input matInput placeholder="60" type="number" [(ngModel)]="config.maxTime" >
-            </mat-form-field>
-            <mat-slider thumbLabel min="10" max="600" step="10" [(ngModel)]="config.maxTime"></mat-slider>
-        </div>
+<div class="field">
+    <mat-form-field class="setup-field">
+        <mat-label>How many dates?</mat-label>
+        <input matInput placeholder="10" type="number" [(ngModel)]="config.count" >
+    </mat-form-field>
+    <mat-slider thumbLabel min="1" max="20" step="1" [(ngModel)]="config.count"></mat-slider>
+</div>
 
-        <div class="field">
-            <div class="button-container">
-                <button (click)="resetConfig()" mat-fab color="basic" aria-label="Reset config to defailts">
-                    <mat-icon>cached</mat-icon>
-                </button>
-            </div>
+<!-- <div class="field">
+    <mat-form-field class="setup-field">
+        <mat-label>Time available (in seconds)</mat-label>
+        <input matInput placeholder="60" type="number" [(ngModel)]="config.maxTime" >
+    </mat-form-field>
+    <mat-slider thumbLabel min="10" max="600" step="10" [(ngModel)]="config.maxTime"></mat-slider>
+</div> -->
 
-            <div class="button-container">
-                <button (click)="saveConfig()" mat-fab color="accent" aria-label="Start a new game">
-                    <mat-icon>arrow_forward_ios</mat-icon>
-                </button>
-            </div>
-        </div>
-    </fieldset>
+<div class="buttons field">
+    <div class="button-container">
+        <button (click)="resetConfig()" mat-fab color="basic" aria-label="Reset config to defailts">
+            <mat-icon>cached</mat-icon>
+        </button>
+    </div>
+
+    <div class="button-container">
+        <button (click)="saveConfig()" mat-fab color="accent" aria-label="Start a new game">
+            <mat-icon>arrow_forward_ios</mat-icon>
+        </button>
+    </div>
+</div>
