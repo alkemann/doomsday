@@ -1,9 +1,18 @@
 <div>
-    <h3>Results</h3>
-    <dl>
-        <dt>Correct</dt><dd>{{total.correct}}</dd>
-        <dt>Score</dt><dd>{{total.score}}</dd>
-    </dl>
+    <h2>Results</h2>
+    <table class="scoreboard">
+        <tr>
+            <th># Correct</th><td>{{total.correct}}</td>
+            <th>Score</th><td>{{total.score}}</td>
+        </tr>
+    </table>
+
+    <div class="button-container">
+        <button (click)="this.restart.emit()" mat-fab color="accent" aria-label="Start a new game">
+            <mat-icon>arrow_forward_ios</mat-icon>
+        </button>
+    </div>
+
     <table mat-table [dataSource]="results">
         
         <ng-container matColumnDef="round">
@@ -36,7 +45,7 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
     </table>
-    <br>
+
     <div class="button-container">
         <button (click)="this.restart.emit()" mat-fab color="accent" aria-label="Start a new game">
             <mat-icon>arrow_forward_ios</mat-icon>

@@ -29,6 +29,18 @@ table {
 }
 
 .button-container {
-    margin: 1em auto;
+    margin: 2em auto;
     text-align: center;
+}
+
+h2 {
+    text-align: center;
+    font-size: 135%;
+    text-decoration: underline;
+}
+table.scoreboard {
+    width:auto;
+    th {
+        padding: 0 0.2em 0 1em;
+    }
 }

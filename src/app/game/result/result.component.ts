@@ -66,8 +66,9 @@ export class ResultComponent implements OnInit {
         points: r.correct === r.guess ? 1 : 0
       }
       this.total.time += r.timed;
-      this.total.score += r.correct === r.guess ? 1 : 0;
       this.total.correct += r.correct === r.guess ? 1 : 0;
+      this.total.score += r.correct === r.guess ? 1 : -1;
+      this.total.score = Math.max(this.total.score, 0);
     }
   }
 
