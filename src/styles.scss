@@ -5,7 +5,10 @@
 html, body { height: 100%; }
 body {
     margin: 0; 
-}
+    background: #424242;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    color: #DDD;
+} 
 
 #wrapper {
     padding: 1em 1em;

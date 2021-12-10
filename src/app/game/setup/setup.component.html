@@ -1,7 +1,7 @@
     <fieldset>
         <legend color="primary">Configure training session</legend>
         <div class="field">
-            <mat-form-field>
+            <mat-form-field class="setup-field">
                 <mat-label>Start Year</mat-label>
                 <input matInput placeholder="2021" type="number" [(ngModel)]="config.startYear" >
             </mat-form-field>
@@ -9,7 +9,7 @@
         </div>
         <div class="field">
 
-            <mat-form-field>
+            <mat-form-field class="setup-field">
                 <mat-label>End Year</mat-label>
                 <input matInput placeholder="2021" type="number" [(ngModel)]="config.endYear" >
             </mat-form-field>
@@ -17,7 +17,7 @@
         </div>
         <div class="field">
 
-            <mat-form-field>
+            <mat-form-field class="setup-field">
                 <mat-label>How many dates?</mat-label>
                 <input matInput placeholder="10" type="number" [(ngModel)]="config.count" >
             </mat-form-field>
@@ -25,7 +25,7 @@
         </div>
         <div class="field">
 
-            <mat-form-field>
+            <mat-form-field class="setup-field">
                 <mat-label>Time available (in seconds)</mat-label>
                 <input matInput placeholder="60" type="number" [(ngModel)]="config.maxTime" >
             </mat-form-field>

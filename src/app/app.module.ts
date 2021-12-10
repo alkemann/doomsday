@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatTableModule } from '@angular/material/table';
 
 import { RulesComponent } from './rules/rules.component';
 import { GameComponent } from './game/game.component';
@@ -35,6 +36,7 @@ import { ResultComponent } from './game/result/result.component';
     MatIconModule,
     MatButtonModule,
     MatProgressBarModule,
+    MatTableModule,
     FormsModule
   ],
   providers: [],

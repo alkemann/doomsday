@@ -1,23 +1,40 @@
 <div>
     <h3>Results</h3>
+    <dl>
+        <dt>Correct</dt><dd>{{total.correct}}</dd>
+        <dt>Score</dt><dd>{{total.score}}</dd>
+    </dl>
+    <table mat-table [dataSource]="results">
+        
+        <ng-container matColumnDef="round">
+            <th mat-header-cell *matHeaderCellDef> # </th>
+            <td mat-cell *matCellDef="let element"> {{element.round}} </td>
+        </ng-container> 
 
-    <table>
-        <thead>
-            <tr>
-                <th>#</th>
-                <!-- <th>Time</th> -->
-                <th>Guess</th>
-                <th>Real date</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let round of rounds; index as i;">
-                <td>{{i + 1}}</td>
-                <!-- <td>{{round.timed}}</td> -->
-                <td>{{round.guess === round.correct ? "Y" : "N"}}  {{d[round.guess]}}</td>
-                <td>{{round.fullDate}}</td>
-            </tr>
-        </tbody>
+        <ng-container matColumnDef="time">
+            <th mat-header-cell *matHeaderCellDef> time </th>
+            <td mat-cell *matCellDef="let element"> {{element.time}} </td>
+        </ng-container> 
+
+        <ng-container matColumnDef="guess">
+            <th mat-header-cell *matHeaderCellDef> guess </th>
+            <td mat-cell *matCellDef="let element"> {{element.correct ? "Y ":"N     "}} {{element.guess}} </td>
+        </ng-container> 
+
+        <ng-container matColumnDef="date">
+            <th mat-header-cell *matHeaderCellDef> date </th>
+            <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+        </ng-container> 
+
+
+        <ng-container matColumnDef="points">
+            <th mat-header-cell *matHeaderCellDef> points </th>
+            <td mat-cell *matCellDef="let element"> {{element.points}} </td>
+        </ng-container> 
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
     </table>
     <br>
     <div class="button-container">

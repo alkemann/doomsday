@@ -2,6 +2,9 @@
     mat-label {
         color:hotpink;
     }
+    input[type=number] {
+        width: 5em;
+    }
     margin-bottom: 0.6em;
     span {
         display: block;
@@ -10,4 +13,12 @@
         display: inline-block;
         margin-right: 1em;
     }
+}
+
+.setup-field {
+    width: 50px;
+}
+
+mat-slider {
+    width: 80%;
 }
