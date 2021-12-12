@@ -7,6 +7,7 @@
     <game-round 
         *ngSwitchCase="States.ROUND"
         [round]="round"
+        [score]="score"
         [config]="config"
         [gameTimePassed]="timer"
         (roundComplete)="guessWasMade($event)"

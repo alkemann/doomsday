@@ -12,12 +12,15 @@ export class RoundComponent implements OnInit {
   @Input() round : Round | null;
   @Input() config : Config;
   @Input() gameTimePassed : number;
+  @Input() score: number;
 
   @Output() roundComplete: EventEmitter<any> = new EventEmitter();
 
   private currentRoundTime : number = 0;
   private progressPercent : number = 0;
   private guessed : boolean = false;
+
+  public scored : number;
 
   constructor() { }
 
@@ -36,6 +39,7 @@ export class RoundComponent implements OnInit {
       this.guessed = false;
       this.progressPercent = Math.round( 100 * this.round.roundNumber / this.round.maxRounds);
       this.currentRoundTime = 0;
+      this.scored = Math.round( 100 * this.score / this.config.count );
     }
   }
 

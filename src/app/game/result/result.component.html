@@ -27,7 +27,7 @@
 
         <ng-container matColumnDef="guess">
             <th mat-header-cell *matHeaderCellDef> guess </th>
-            <td mat-cell *matCellDef="let element"> {{element.correct ? "Y ":"N     "}} {{element.guess}} </td>
+            <td mat-cell *matCellDef="let element" class="{{element.correct ? 'correct':'wrong'}}"> {{element.guess}} </td>
         </ng-container> 
 
         <ng-container matColumnDef="date">

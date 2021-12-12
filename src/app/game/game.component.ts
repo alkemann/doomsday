@@ -11,9 +11,9 @@ import { States } from '../states';
 export class GameComponent implements OnInit {
 
   public config: Config = {
-    startYear: 1900,
-    endYear: 2100,
-    count: 5,
+    startYear: 2021,
+    endYear: 2021,
+    count: 3,
     timer: false,
     maxTime: 60
   }
@@ -23,6 +23,7 @@ export class GameComponent implements OnInit {
   public state : States = States.SETUP;
   public round : Round | null;
   public timer: number = 40;
+  public score: number = 0;
 
   rounds : Round[];
   roundIndex : number = 0;
@@ -42,6 +43,7 @@ export class GameComponent implements OnInit {
   }
 
   configUpdated(): void {
+    this.score = 0;
     this.roundIndex = 0;
     this.rounds = [];
     const dates = this.randomDates(this.config.count);
@@ -64,6 +66,9 @@ export class GameComponent implements OnInit {
   guessWasMade(round: Round) {
     if (this.config.timer) {
       this.timer += round.timed;
+    }
+    if (round.guess == round.correct) {
+      this.score ++ ;
     }
     this.state = States.JUDGE;
     // this.nextRound();
