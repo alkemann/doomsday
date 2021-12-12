@@ -1,3 +1,4 @@
+import { Config } from './../../config';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Round } from 'src/app/round';
 
@@ -9,6 +10,7 @@ import { Round } from 'src/app/round';
 export class RoundComponent implements OnInit {
 
   @Input() round : Round | null;
+  @Input() config : Config;
   @Input() gameTimePassed : number;
 
   @Output() roundComplete: EventEmitter<any> = new EventEmitter();

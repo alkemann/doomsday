@@ -32,8 +32,8 @@
         </div>
     </div>
     <div class="meta">
-        <span class="round-time" [innerText]="roundTime"></span>
-        <span class="game-time" [innerText]="gameTime"></span>
+        <span class="round-time" *ngIf="config.timer" [innerText]="roundTime"></span>
+        <span class="game-time" *ngIf="config.timer"  [innerText]="gameTime"></span>
         <mat-progress-bar color="accent" mode="determinate" [value]="progress"></mat-progress-bar>
     </div>
     

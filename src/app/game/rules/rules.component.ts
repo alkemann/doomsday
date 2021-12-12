@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'doomsday-rules',
+  selector: 'game-rules',
   templateUrl: './rules.component.html',
   styleUrls: ['./rules.component.scss']
 })

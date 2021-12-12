@@ -10,13 +10,15 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatTableModule } from '@angular/material/table';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
-import { RulesComponent } from './rules/rules.component';
 import { GameComponent } from './game/game.component';
+
 import { SetupComponent } from './game/setup/setup.component';
 import { RoundComponent } from './game/round/round.component';
 import { JudgeComponent } from './game/judge/judge.component';
 import { ResultComponent } from './game/result/result.component';
+import { RulesComponent } from './game/rules/rules.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,7 @@ import { ResultComponent } from './game/result/result.component';
     MatButtonModule,
     MatProgressBarModule,
     MatTableModule,
+    MatSlideToggleModule,
     FormsModule
   ],
   providers: [],

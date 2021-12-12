@@ -9,12 +9,16 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 export class JudgeComponent implements OnInit {
 
   @Input() round: Round | null;
-
   @Output() next: EventEmitter<any> = new EventEmitter();
 
+  private days: string[] = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
   constructor() { }
+  ngOnInit(): void { }
 
-  ngOnInit(): void {
+  guessToString(n: number): string
+  {
+    
+    return this.days[n];
   }
-
 }

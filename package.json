@@ -1,6 +1,6 @@
 {
   "name": "doomsday",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "scripts": {
     "ng": "ng",
     "start" : "node server.js",
@@ -9,7 +9,7 @@
     "test": "ng test",
     "heroku-postbuild": "ng build — prod"
   },
-  "engines": { "node": "v17.2.0", "npm": "8.1.4" },
+  "engines": { "node": "v16.10.0", "npm": "8.1.4" },
   "private": true,
   "dependencies": {
     "@angular/animations": "~13.0.0",

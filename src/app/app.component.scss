@@ -1,3 +1,12 @@
-@use '@angular/material' as mat;
 
-@include mat.core();
+
+header {
+    clear: both;
+    overflow:  hidden;
+    h1 {
+        float: left;
+    }
+    #rules-toggle {
+        float: right;
+    }
+}

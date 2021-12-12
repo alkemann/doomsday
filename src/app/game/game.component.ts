@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Config } from '../config';
 import { Round } from '../round';
 import { States } from '../states';
@@ -14,8 +14,11 @@ export class GameComponent implements OnInit {
     startYear: 1900,
     endYear: 2100,
     count: 5,
+    timer: false,
     maxTime: 60
   }
+
+  @Input() showrules : boolean = false;
 
   public state : States = States.SETUP;
   public round : Round | null;
@@ -59,9 +62,11 @@ export class GameComponent implements OnInit {
   }
 
   guessWasMade(round: Round) {
-    // this.timer += round.timed;
-    // this.state = States.JUDGE;
-    this.nextRound();
+    if (this.config.timer) {
+      this.timer += round.timed;
+    }
+    this.state = States.JUDGE;
+    // this.nextRound();
   }
 
   nextRound(): void {

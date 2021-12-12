@@ -1,6 +1,5 @@
-<div class="board" [ngSwitch]="state" >
+<div class="board" *ngIf="!showrules" [ngSwitch]="state" >
     <game-setup
-
         *ngSwitchCase="States.SETUP"
         [config]="config"
         (setupSaved)="configUpdated()"
@@ -8,6 +7,7 @@
     <game-round 
         *ngSwitchCase="States.ROUND"
         [round]="round"
+        [config]="config"
         [gameTimePassed]="timer"
         (roundComplete)="guessWasMade($event)"
     ></game-round>
@@ -22,3 +22,4 @@
         (restart)="restart()"
     ></game-result>
 </div>
+<game-rules *ngIf="showrules"></game-rules>
