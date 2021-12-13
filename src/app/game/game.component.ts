@@ -88,8 +88,8 @@ export class GameComponent implements OnInit {
   }
 
   randomDates(n:number) {
-    const min = new Date(this.config.startYear, 1, 1).getTime();
-    const max = new Date(this.config.endYear, 12, 31).getTime();
+    const min = new Date(this.config.startYear, 0, 1).getTime();
+    const max =   new Date(this.config.endYear, 11, 31, 23, 59, 59).getTime();
     let dates = [];
     for (let index = 0; index < n; index++) {
       const rn = Math.floor(Math.random() * (max - min + 1) + min)
