@@ -19,6 +19,7 @@ export class GameComponent implements OnInit {
   }
 
   @Input() showrules : boolean = false;
+  @Input() showhelp : boolean = false;
 
   public state : States = States.SETUP;
   public round : Round | null;

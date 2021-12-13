@@ -1,13 +1,14 @@
 <div id="wrapper">
   <header>
-    <div id="rules-toggle">
-      <mat-slide-toggle [(ngModel)]="showrules">Rules</mat-slide-toggle>
+    <div id="toggles">
+      <mat-slide-toggle [(ngModel)]="showrules">Help</mat-slide-toggle>
+      <mat-slide-toggle [(ngModel)]="showhelp">Hints</mat-slide-toggle>
     </div>
     <h1 color="accent">{{title}}</h1>
   </header>
   <article>
     <div id="content">
-      <doomsday-game [showrules]="showrules"></doomsday-game>
+      <doomsday-game [showrules]="showrules" [showhelp]="showhelp"></doomsday-game>
     </div>
   </article>
   <footer>

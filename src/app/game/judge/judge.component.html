@@ -1,12 +1,12 @@
 <div *ngIf="round" class="judge">
 
-    <h2>Round #{{round.roundNumber + 1}}: 
-        <span *ngIf="round.correct == round.guess" class="correct">CORRECT!</span>
-        <span *ngIf="round.correct != round.guess" class="wrong">wrong</span>
-    </h2>
+    <h2>Round #{{round.roundNumber + 1}}</h2>
+    <h2 *ngIf="round.correct == round.guess" class="correct">CORRECT! :D</h2>
+    <h2 *ngIf="round.correct != round.guess" class="wrong">Wrong :(</h2>
     <h3>{{round.fullDate}}</h3>
     <h4 *ngIf="round.correct !== round.guess" color="warn">Guessed: {{guessToString(round.guess)}}</h4>
-
+    <br>
+    <br>
     <div class="button-container">
         <button (click)="this.next.emit()" mat-fab color="accent" aria-label="Start a new game">
             <mat-icon>arrow_forward_ios</mat-icon>

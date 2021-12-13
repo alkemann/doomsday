@@ -13,6 +13,7 @@ export class RoundComponent implements OnInit {
   @Input() config : Config;
   @Input() gameTimePassed : number;
   @Input() score: number;
+  @Input() showHelp: boolean;
 
   @Output() roundComplete: EventEmitter<any> = new EventEmitter();
 

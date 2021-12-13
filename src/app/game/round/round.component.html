@@ -4,31 +4,73 @@
     <div class="days">
         
         <div class="button-container">
-            <button class="guess" (click)="guess(0)" mat-flat-button color="primary" aria-label="Guess Sunday">Sunday</button>
+            
+            <button class="guess" (click)="guess(0)" mat-flat-button color="primary" aria-label="Guess Sunday">
+                <span *ngIf="showHelp" class="help-left">0</span>
+                <span class="help-text">Sunday</span>
+                <span *ngIf="showHelp" class="help-right">0</span>
+            </button>
+            
         </div>
         
         <div class="button-container">
-            <button class="guess" (click)="guess(1)" mat-flat-button color="primary" aria-label="Guess Monday">Monday</button>
+            
+            <button class="guess" (click)="guess(1)" mat-flat-button color="primary" aria-label="Guess Monday">
+                <span *ngIf="showHelp" class="help-left">-6</span>
+                <span class="help-text">Monday</span>
+                <span *ngIf="showHelp" class="help-right">&nbsp;1</span>
+            </button>
+            
         </div>
         
         <div class="button-container">
-            <button class="guess" (click)="guess(2)" mat-flat-button color="primary" aria-label="Guess Tuesday">Tuesday</button>
+            
+            <button class="guess" (click)="guess(2)" mat-flat-button color="primary" aria-label="Guess Tuesday">
+                <span *ngIf="showHelp" class="help-left">-5</span>
+                <span class="help-text">Tuesday</span>
+                <span *ngIf="showHelp" class="help-right">&nbsp;2</span>
+            </button>
+            
         </div>
         
         <div class="button-container">
-            <button class="guess" (click)="guess(3)" mat-flat-button color="primary" aria-label="Guess Wednesday">Wednesday</button>
+            
+            <button class="guess" (click)="guess(3)" mat-flat-button color="primary" aria-label="Guess Wednesday">
+                <span *ngIf="showHelp" class="help-left">-4</span>
+                <span class="help-text">Wednesday</span>
+                <span *ngIf="showHelp" class="help-right">&nbsp;3</span>
+            </button>
+            
         </div>
         
         <div class="button-container">
-            <button class="guess" (click)="guess(4)" mat-flat-button color="primary" aria-label="Guess Thursdag">Thursdag</button>
+            
+            <button class="guess" (click)="guess(4)" mat-flat-button color="primary" aria-label="Guess Thursdag">
+                <span *ngIf="showHelp" class="help-left">-3</span>
+                <span class="help-text">Thursdag</span>
+                <span *ngIf="showHelp" class="help-right">&nbsp;4</span>
+            </button>
+            
         </div>
         
         <div class="button-container">
-            <button class="guess" (click)="guess(5)" mat-flat-button color="primary" aria-label="Guess Friday">Friday</button>
+            
+            <button class="guess" (click)="guess(5)" mat-flat-button color="primary" aria-label="Guess Friday">
+                <span *ngIf="showHelp" class="help-left">-2</span>
+                <span class="help-text">Friday</span>
+                <span *ngIf="showHelp" class="help-right">&nbsp;5</span>
+            </button>
+            
         </div>
         
         <div class="button-container">
-            <button class="guess" (click)="guess(6)" mat-flat-button color="primary" aria-label="Guess Saturday">Saturday</button>
+            
+            <button class="guess" (click)="guess(6)" mat-flat-button color="primary" aria-label="Guess Saturday">
+                <span *ngIf="showHelp" class="help-left">-1</span>
+                <span class="help-text">Saturday</span>
+                <span *ngIf="showHelp" class="help-right">&nbsp;6</span>
+            </button>
+            
         </div>
     </div>
     <div class="meta">

@@ -8,4 +8,5 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Doomsday';
   public showrules : boolean = false;
+  public showhelp : boolean = false;
 }
