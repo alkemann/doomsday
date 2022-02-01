@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Config } from '../config';
-import { Round } from '../round';
-import { States } from '../states';
+import { Config } from '../interfaces/config';
+import { Round } from '../interfaces/round';
+import { States } from '../interfaces/states';
 
 @Component({
   selector: 'doomsday-game',
@@ -11,9 +11,9 @@ import { States } from '../states';
 export class GameComponent implements OnInit {
 
   public config: Config = {
-    startYear: 2021,
-    endYear: 2021,
-    count: 3,
+    startYear: 2022,
+    endYear: 2022,
+    count: 5,
     timer: false,
     maxTime: 60
   }
@@ -95,7 +95,7 @@ export class GameComponent implements OnInit {
     for (let index = 0; index < n; index++) {
       const rn = Math.floor(Math.random() * (max - min + 1) + min)
       dates[index] = new Date(rn);
-      
+
     }
     return dates;
   }

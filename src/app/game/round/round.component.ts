@@ -1,6 +1,6 @@
-import { Config } from './../../config';
+import { Config } from '../../interfaces/config';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { Round } from 'src/app/round';
+import { Round } from 'src/app/interfaces/round';
 
 @Component({
   selector: 'game-round',

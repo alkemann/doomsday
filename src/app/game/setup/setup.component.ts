@@ -1,4 +1,4 @@
-import { Config } from './../../config';
+import { Config } from '../../interfaces/config';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
@@ -9,7 +9,7 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 export class SetupComponent implements OnInit {
   @Input() config: Config;
 
-  
+
   @Output() setupSaved: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
