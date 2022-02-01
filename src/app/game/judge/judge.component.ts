@@ -1,4 +1,4 @@
-import { Round } from 'src/app/round';
+import { Round } from 'src/app/interfaces/round';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
@@ -18,7 +18,7 @@ export class JudgeComponent implements OnInit {
 
   guessToString(n: number): string
   {
-    
+
     return this.days[n];
   }
 }

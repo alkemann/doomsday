@@ -1,4 +1,4 @@
-import { Round } from 'src/app/round';
+import { Round } from 'src/app/interfaces/round';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 export interface Result {
@@ -34,7 +34,7 @@ export class ResultComponent implements OnInit {
     "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"
   ];
 
-  displayedColumns: string[] = ['round', 'guess', 'date'  ]; // , 'correct', 'points' 'time', 
+  displayedColumns: string[] = ['round', 'guess', 'date'  ]; // , 'correct', 'points' 'time',
 
   constructor() { }
 
