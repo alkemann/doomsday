@@ -19,6 +19,8 @@ import { RoundComponent } from './game/round/round.component';
 import { JudgeComponent } from './game/judge/judge.component';
 import { ResultComponent } from './game/result/result.component';
 import { RulesComponent } from './game/rules/rules.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,13 @@ import { RulesComponent } from './game/rules/rules.component';
     MatProgressBarModule,
     MatTableModule,
     MatSlideToggleModule,
-    FormsModule
+    FormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
