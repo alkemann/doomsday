@@ -28,5 +28,6 @@
 	],
 	"name": "Doomsday",
 	"short_name": "D",
-	"start_url": "/"
+	"start_url": "/",
+	"orientation": "portrait"
 }
