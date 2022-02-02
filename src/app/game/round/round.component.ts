@@ -17,11 +17,12 @@ export class RoundComponent implements OnInit {
 
   @Output() roundComplete: EventEmitter<any> = new EventEmitter();
 
+  public scored : number;
+  public progressPercent : number = 0;
+
   private currentRoundTime : number = 0;
-  private progressPercent : number = 0;
   private guessed : boolean = false;
 
-  public scored : number;
 
   constructor() { }
 
@@ -42,10 +43,6 @@ export class RoundComponent implements OnInit {
       this.currentRoundTime = 0;
       this.scored = Math.round( 100 * this.score / this.config.count );
     }
-  }
-
-  get progress(): number {
-    return this.progressPercent
   }
 
   get roundTime(): string {

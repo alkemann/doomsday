@@ -1,11 +1,11 @@
 <div class="board" *ngIf="!showrules" [ngSwitch]="state" >
     <game-setup
-        *ngSwitchCase="States.SETUP"
+        *ngSwitchCase="stateType.SETUP"
         [config]="config"
         (setupSaved)="configUpdated()"
     ></game-setup>
-    <game-round 
-        *ngSwitchCase="States.ROUND"
+    <game-round
+        *ngSwitchCase="stateType.ROUND"
         [round]="round"
         [score]="score"
         [config]="config"
@@ -14,12 +14,12 @@
         (roundComplete)="guessWasMade($event)"
     ></game-round>
     <game-judge
-        *ngSwitchCase="States.JUDGE"
+        *ngSwitchCase="stateType.JUDGE"
         [round]="round"
         (next)="nextRound()"
     ></game-judge>
     <game-result
-        *ngSwitchCase="States.RESULT"
+        *ngSwitchCase="stateType.RESULT"
         [rounds]="rounds"
         (restart)="restart()"
     ></game-result>

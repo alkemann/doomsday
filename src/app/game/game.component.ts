@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Config } from '../interfaces/config';
 import { Round } from '../interfaces/round';
-import { States } from '../interfaces/states';
+import { States } from '../enums/states';
 
 @Component({
   selector: 'doomsday-game',
@@ -21,6 +21,7 @@ export class GameComponent implements OnInit {
   @Input() showrules : boolean = false;
   @Input() showhelp : boolean = false;
 
+  public stateType = States;
   public state : States = States.SETUP;
   public round : Round | null;
   public timer: number = 40;
@@ -33,11 +34,9 @@ export class GameComponent implements OnInit {
     "Jan", "Feb", "Mar", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Des"
   ];
 
-  constructor() {
-  }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   restart(): void {
     this.state = States.SETUP;
@@ -72,7 +71,6 @@ export class GameComponent implements OnInit {
       this.score ++ ;
     }
     this.state = States.JUDGE;
-    // this.nextRound();
   }
 
   nextRound(): void {
@@ -80,9 +78,7 @@ export class GameComponent implements OnInit {
       this.state = States.ROUND;
       this.roundIndex ++ ;
       this.round = this.rounds[this.roundIndex];
-      console.log('next round');
     } else {
-      console.log('results now');
       this.state = States.RESULT;
       this.round = null;
     }
@@ -98,9 +94,5 @@ export class GameComponent implements OnInit {
 
     }
     return dates;
-  }
-
-  public get States() {
-    return States;
   }
 }
