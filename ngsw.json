@@ -1,0 +1,77 @@
+{
+  "configVersion": 1,
+  "timestamp": 1643836508009,
+  "index": "/doomsday/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/doomsday/favicon.ico",
+        "/doomsday/index.html",
+        "/doomsday/main.b919846e2f982e56.js",
+        "/doomsday/manifest.webmanifest",
+        "/doomsday/polyfills.6cb0bd1910e11345.js",
+        "/doomsday/runtime.12967b8f7204717d.js",
+        "/doomsday/styles.288250d2ec9cb593.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/doomsday/assets/icons/icon-128.png",
+        "/doomsday/assets/icons/icon-152.png",
+        "/doomsday/assets/icons/icon-180.png",
+        "/doomsday/assets/icons/icon-192.png",
+        "/doomsday/assets/icons/icon-256.png",
+        "/doomsday/assets/icons/icon-50.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/doomsday/assets/icons/icon-128.png": "ee707cfdddbf63de64d361345e2a4df39136b990",
+    "/doomsday/assets/icons/icon-152.png": "1be0c744947781695d1cc7cd2f1eede998415a59",
+    "/doomsday/assets/icons/icon-180.png": "b3a390518ccd0003cb3b9f6b2dfbd9dc3e81a36b",
+    "/doomsday/assets/icons/icon-192.png": "986580cfeb712b89c2eeff9c88e91186f3571dbe",
+    "/doomsday/assets/icons/icon-256.png": "895fc7f3da306128e4550b82fe1fdbf1cf5144d6",
+    "/doomsday/assets/icons/icon-50.png": "923de3b12051d6fb3137ac7f4787818e347a993c",
+    "/doomsday/favicon.ico": "0fa1b112eef541efa68aa6f632424fe256851366",
+    "/doomsday/index.html": "d32bdb7fdaf7d5f5f646861a878d2259684c6d0c",
+    "/doomsday/main.b919846e2f982e56.js": "5e040fd06b4228c101c679b92bfcfb78cc27f81f",
+    "/doomsday/manifest.webmanifest": "a582dbbf0d794b43a5be0056eb9c5335c791a1d8",
+    "/doomsday/polyfills.6cb0bd1910e11345.js": "a2337fd0098894977c37eb3ab7ecbca1d73cec08",
+    "/doomsday/runtime.12967b8f7204717d.js": "2297dfe0bfb4d3cc1f5d436347b11434ca6f874d",
+    "/doomsday/styles.288250d2ec9cb593.css": "d899b0220776a67940de589a391cf8d7164821ca"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
