@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1643983053143,
+  "timestamp": 1643984382807,
   "index": "/doomsday/index.html",
   "assetGroups": [
     {
@@ -48,7 +48,7 @@
     "/doomsday/assets/icons/icon-256.png": "895fc7f3da306128e4550b82fe1fdbf1cf5144d6",
     "/doomsday/assets/icons/icon-50.png": "923de3b12051d6fb3137ac7f4787818e347a993c",
     "/doomsday/favicon.ico": "0fa1b112eef541efa68aa6f632424fe256851366",
-    "/doomsday/index.html": "267eb7e6043627eeec29781603bdb748fc8393f9",
+    "/doomsday/index.html": "4f3e24621975a53d3d58128c601ee87c9a2ebbe3",
     "/doomsday/main.b919846e2f982e56.js": "5e040fd06b4228c101c679b92bfcfb78cc27f81f",
     "/doomsday/manifest.webmanifest": "0bd4cd894e1302263dc113eca544c886c9a27428",
     "/doomsday/polyfills.6cb0bd1910e11345.js": "a2337fd0098894977c37eb3ab7ecbca1d73cec08",
