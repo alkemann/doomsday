@@ -13,7 +13,7 @@ export class GameComponent implements OnInit {
   public config: Config = {
     startYear: 2022,
     endYear: 2022,
-    count: 5,
+    count: 8,
     timer: false,
     maxTime: 60
   }
@@ -82,6 +82,10 @@ export class GameComponent implements OnInit {
       this.state = States.RESULT;
       this.round = null;
     }
+  }
+
+  highscore(): void {
+    this.state = States.HIGHSCORE;
   }
 
   randomDates(n:number) {
