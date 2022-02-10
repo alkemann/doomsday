@@ -3,5 +3,6 @@ export enum States {
     START,
     ROUND,
     JUDGE,
-    RESULT
+    RESULT,
+    HIGHSCORE,
 }

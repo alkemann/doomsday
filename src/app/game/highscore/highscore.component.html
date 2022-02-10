@@ -1,0 +1,19 @@
+
+<div>
+
+  <h2>Highscore list</h2>
+  <ol *ngIf="scores && scores.length > 0; else loading">
+    <li *ngFor="let score of scores">
+      {{score.name}} {{score.points}} {{score.time}}
+    </li>
+  </ol>
+  <ng-template #loading>
+    <div class="loading"><img src="assets/loading.gif" alt="Loading"></div>
+  </ng-template>
+
+  <div class="button-container">
+    <button (click)="this.restart.emit()" mat-fab color="accent" aria-label="Start a new game">
+        <mat-icon>arrow_forward_ios</mat-icon>
+    </button>
+  </div>
+</div>
