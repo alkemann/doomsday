@@ -47,7 +47,7 @@ export class ResultComponent implements OnInit {
   submit(): void {
     this.loading = true;
     this.HighscoreService
-      .submit({points: this.total.score, time: 0, name: "Alek"})
+      .submit({points: this.total.score, time: 0, name: "You"})
       .subscribe( ok => this.next.emit() );
   }
 

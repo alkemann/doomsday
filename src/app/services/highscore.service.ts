@@ -13,10 +13,10 @@ export interface Score {
 export class HighscoreService {
 
   private data = [
-    {points: 6, time: 15, name: "Alexander"},
-    {points: 4, time: 18, name: "Alexander"},
-    {points: 3, time: 23, name: "Ralph"},
-    {points: 2, time: 40, name: "Tom"},
+    {points: 6, time: 15, name: "Great"},
+    {points: 4, time: 18, name: "Good"},
+    {points: 3, time: 23, name: "Meh"},
+    {points: 2, time: 40, name: "Bad"},
   ];
 
   constructor() { }
