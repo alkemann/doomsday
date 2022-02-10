@@ -18,14 +18,14 @@
         [round]="round"
         (next)="nextRound()"
     ></game-judge>
-    <game-highscore
-        *ngSwitchCase="stateType.HIGHSCORE"
-        (restart)="restart()"
-    ></game-highscore>
     <game-result
         *ngSwitchCase="stateType.RESULT"
         [rounds]="rounds"
-        (restart)="restart()"
+        (next)="highscore()"
     ></game-result>
+    <game-highscore
+        *ngSwitchCase="stateType.HIGHSCORE"
+        (next)="restart()"
+    ></game-highscore>
 </div>
 <game-rules *ngIf="showrules"></game-rules>

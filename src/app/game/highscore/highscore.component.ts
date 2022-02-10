@@ -10,7 +10,7 @@ export class HighscoreComponent implements OnInit {
 
   public scores: Score[];
 
-  @Output() restart: EventEmitter<any> = new EventEmitter();
+  @Output() next: EventEmitter<any> = new EventEmitter();
 
   constructor(private HighscoreService: HighscoreService) { }
 
@@ -18,12 +18,5 @@ export class HighscoreComponent implements OnInit {
     this.HighscoreService.list().subscribe(
       scores => this.scores = scores
     );
-    // await this.HighscoreService.list().then((s:Score[]) => {
-    //   this.scores = s
-    //   console.log("GOT IT");
-    //   console.debug(this);
-    // });
-    // console.debug(this.scores);
   }
-
 }

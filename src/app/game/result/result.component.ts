@@ -1,3 +1,4 @@
+import { HighscoreService } from './../../services/highscore.service';
 import { Round } from 'src/app/interfaces/round';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
@@ -25,8 +26,9 @@ export class ResultComponent implements OnInit {
 
   @Input() rounds: Round[];
 
-  @Output() restart: EventEmitter<any> = new EventEmitter();
+  @Output() next: EventEmitter<any> = new EventEmitter();
 
+  public loading: boolean = false;
   public results: Result[];
   public total: Totals;
 
@@ -36,15 +38,17 @@ export class ResultComponent implements OnInit {
 
   displayedColumns: string[] = ['round', 'guess', 'date'  ]; // , 'correct', 'points' 'time',
 
-  constructor() { }
+  constructor(private HighscoreService: HighscoreService) { }
 
   ngOnInit(): void {
     this.scorebard();
-
   }
 
-  ngOnChange(): void {
-    this.scorebard();
+  submit(): void {
+    this.loading = true;
+    this.HighscoreService
+      .submit({points: this.total.score, time: 0, name: "Alek"})
+      .subscribe( ok => this.next.emit() );
   }
 
   private scorebard(): void {

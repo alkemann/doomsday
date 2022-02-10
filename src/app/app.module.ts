@@ -22,6 +22,7 @@ import { RulesComponent } from './game/rules/rules.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { HighscoreComponent } from './game/highscore/highscore.component';
+import { LoadingComponent } from './shared/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { HighscoreComponent } from './game/highscore/highscore.component';
     JudgeComponent,
     ResultComponent,
     HighscoreComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,
