@@ -84,7 +84,7 @@
           },
           "defaultConfiguration": "development",
           "options": {
-            "port": 1337
+            "port": 1300
           }
         },
         "extract-i18n": {

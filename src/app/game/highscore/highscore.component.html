@@ -5,10 +5,10 @@
 
   <ng-template #loadingBlock><shared-loading message="Loading Highscore list!"></shared-loading></ng-template>
 
-  <div *ngIf="scores && scores.length > 0; else loadingBlock">
-
+  <div *ngIf="list && list.scores.length > 0; else loadingBlock">
+    <h3>{{list.name}}</h3>
     <ol>
-      <li *ngFor="let score of scores">
+      <li *ngFor="let score of list.scores">
         {{score.points}} : {{score.name}}
       </li>
     </ol>

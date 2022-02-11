@@ -25,6 +25,7 @@
     ></game-result>
     <game-highscore
         *ngSwitchCase="stateType.HIGHSCORE"
+        [config]="config"
         (next)="restart()"
     ></game-highscore>
 </div>

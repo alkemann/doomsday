@@ -5,11 +5,20 @@ h2 {
   text-decoration: underline;
 }
 
+h3 {
+  margin: 0 auto;
+  text-align: center;
+  font-size: 115%;
+}
+
 .button-container {
   margin: 2em auto;
   text-align: center;
 }
 
 ol {
+  margin: 1em 0 0;
+  padding: 0;
   list-style: none;
+  text-align: center;
 }

@@ -1,3 +1,4 @@
+import { Config } from './../interfaces/config';
 import { Injectable } from '@angular/core';
 import { Observable, of, delay } from 'rxjs';
 
@@ -5,6 +6,12 @@ export interface Score {
   name: string;
   points: number;
   time: number;
+}
+
+export interface List {
+  name: string;
+  config: Config;
+  scores: Score[];
 }
 
 @Injectable({
@@ -21,8 +28,13 @@ export class HighscoreService {
 
   constructor() { }
 
-  public list(): Observable<Score[]> {
-    return of(this.data).pipe(delay(1000));
+  public list(config:Config): Observable<List> {
+    const list = {
+      name: "2022 x 8",
+      config,
+      scores: this.data
+    };
+    return of(list).pipe(delay(1000));
   }
 
   public submit(score: Score): Observable<boolean> {
