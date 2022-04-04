@@ -1,6 +1,7 @@
 import { Config } from './../interfaces/config';
 import { Injectable } from '@angular/core';
-import { Observable, of, delay } from 'rxjs';
+import { Observable, of, map, catchError, tap } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 export interface Score {
   name: string;
@@ -19,27 +20,31 @@ export interface List {
 })
 export class HighscoreService {
 
-  private data = [
-    {points: 6, time: 15, name: "Great"},
-    {points: 4, time: 18, name: "Good"},
-    {points: 3, time: 23, name: "Meh"},
-    {points: 2, time: 40, name: "Bad"},
-  ];
+  private scoresUrl = 'api/scores';
 
-  constructor() { }
+  constructor(
+    private http: HttpClient,
+  ) { }
 
-  public list(config:Config): Observable<List> {
-    const list = {
-      name: "2022 x 8",
-      config,
-      scores: this.data
-    };
-    return of(list).pipe(delay(1000));
+  public list(config:Config): Observable<Score[]> {
+    return this.http
+      .get<Score[]>(this.scoresUrl)
+      .pipe(
+        tap(_ => console.log("GOT HIGHSCORE!")),
+        catchError(this.handleError<Score[]>('list', [])),
+        map((list:Score[]) => list.sort((a:Score, b:Score) => a.points < b.points ? 1 : -1))
+      );
   }
 
-  public submit(score: Score): Observable<boolean> {
-    this.data.push(score);
-    this.data.sort( (a:Score, b:Score) => a.points > b.points ? -1 : 1 );
-    return of(true).pipe(delay(1000));
+  handleError<T>(operation:string = 'op', result?: T) {
+    return (error: any): Observable<T> => {
+      console.error({error, operation, result});
+      return of(result as T);
+    };
+  }
+
+  public submit(score: Score): Observable<Score> {
+    return this.http.post<Score>(this.scoresUrl, score)
+      .pipe(tap( r => console.log({r, m:"Got one"})));
   }
 }

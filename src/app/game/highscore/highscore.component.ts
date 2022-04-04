@@ -1,4 +1,4 @@
-import { HighscoreService, List } from './../../services/highscore.service';
+import { HighscoreService, List, Score } from './../../services/highscore.service';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Config } from 'src/app/interfaces/config';
 
@@ -20,7 +20,13 @@ export class HighscoreComponent implements OnInit {
     this.HighscoreService
       .list(this.config)
       .subscribe(
-        (list:List) => this.list = list
+        (scores: Score[]) => {
+          this.list = {
+              name: "2022 x 8",
+              config: this.config,
+              scores: scores
+            };
+        }
       );
   }
 }
