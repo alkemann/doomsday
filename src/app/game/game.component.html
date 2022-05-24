@@ -1,27 +1,8 @@
 <div class="board" *ngIf="!showrules" [ngSwitch]="state" >
-    <game-setup *ngSwitchCase="stateType.SETUP"></game-setup>
-    <game-round
-        *ngSwitchCase="stateType.ROUND"
-        [round]="round"
-        [score]="score"
-        [config]="config"
-        [gameTimePassed]="timer"
-        (roundComplete)="guessWasMade($event)"
-    ></game-round>
-    <game-judge
-        *ngSwitchCase="stateType.JUDGE"
-        [round]="round"
-        (next)="nextRound()"
-    ></game-judge>
-    <game-result
-        *ngSwitchCase="stateType.RESULT"
-        [rounds]="rounds"
-        (next)="highscore()"
-    ></game-result>
-    <game-highscore
-        *ngSwitchCase="stateType.HIGHSCORE"
-        [config]="config"
-        (next)="restart()"
-    ></game-highscore>
+    <game-setup     *ngSwitchCase="stateType.SETUP"></game-setup>
+    <game-round     *ngSwitchCase="stateType.ROUND"></game-round>
+    <game-judge     *ngSwitchCase="stateType.JUDGE"></game-judge>
+    <game-result    *ngSwitchCase="stateType.RESULT"></game-result>
+    <game-highscore *ngSwitchCase="stateType.HIGHSCORE"></game-highscore>
 </div>
 <game-rules *ngIf="showrules"></game-rules>

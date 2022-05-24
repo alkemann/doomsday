@@ -1,6 +1,7 @@
+import { GameStateService } from 'src/app/services/game-state.service';
 import { HighscoreService } from './../../services/highscore.service';
 import { Round } from 'src/app/interfaces/round';
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 export interface Result {
  round: number,
@@ -24,9 +25,7 @@ export interface Totals {
 })
 export class ResultComponent implements OnInit {
 
-  @Input() rounds: Round[];
-
-  @Output() next: EventEmitter<any> = new EventEmitter();
+  public rounds: Round[];
 
   public loading: boolean = false;
   public results: Result[];
@@ -38,9 +37,13 @@ export class ResultComponent implements OnInit {
 
   displayedColumns: string[] = ['round', 'guess', 'date'  ]; // , 'correct', 'points' 'time',
 
-  constructor(private HighscoreService: HighscoreService) { }
+  constructor(
+    private HighscoreService: HighscoreService,
+    private gameState: GameStateService,
+  ) { }
 
   ngOnInit(): void {
+    this.rounds = this.gameState.rounds;
     this.scorebard();
   }
 
@@ -48,11 +51,10 @@ export class ResultComponent implements OnInit {
     this.loading = true;
     this.HighscoreService
       .submit({points: this.total.score, time: 0, name: "You"})
-      .subscribe( ok => this.next.emit() );
+      .subscribe( _ => this.gameState.highscore() );
   }
 
   private scorebard(): void {
-    console.log("Updating scoreboard!");
     this.results = [];
     this.total = {
       time: 0,

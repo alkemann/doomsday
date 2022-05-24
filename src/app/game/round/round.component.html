@@ -74,8 +74,6 @@
         </div>
     </div>
     <div class="meta">
-        <span class="round-time" *ngIf="config.timer" [innerText]="roundTime"></span>
-        <span class="game-time" *ngIf="config.timer"  [innerText]="gameTime"></span>
         <mat-progress-bar class="progress" color="primary" mode="determinate" [value]="progressPercent"></mat-progress-bar>
         <mat-progress-bar class=score color="accent" mode="determinate" [value]="scored"></mat-progress-bar>
     </div>

@@ -1,5 +1,6 @@
+import { GameStateService } from 'src/app/services/game-state.service';
 import { Round } from 'src/app/interfaces/round';
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'game-judge',
@@ -8,17 +9,22 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class JudgeComponent implements OnInit {
 
-  @Input() round: Round | null;
-  @Output() next: EventEmitter<any> = new EventEmitter();
-
+  public round: Round | null;
   private days: string[] = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-  constructor() { }
-  ngOnInit(): void { }
+  constructor(
+    private gameState: GameStateService
+  ) {}
 
-  guessToString(n: number): string
-  {
+  ngOnInit(): void {
+    this.round = this.gameState.activeRound;
+  }
 
+  public guessToString(n: number): string {
     return this.days[n];
+  }
+
+  public done(): void {
+    this.gameState.nextRound()
   }
 }

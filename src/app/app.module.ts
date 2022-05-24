@@ -27,6 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './services/in-memory-data.service';
 import { GameStateService } from './services/game-state.service';
+import { GameLogicService } from './services/game-logic.service';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { GameStateService } from './services/game-state.service';
     })
   ],
   providers: [
-    GameStateService
+    GameStateService,
+    GameLogicService,
   ],
   bootstrap: [AppComponent]
 })

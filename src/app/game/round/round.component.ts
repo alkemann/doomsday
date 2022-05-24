@@ -1,5 +1,4 @@
 import { GameStateService } from './../../services/game-state.service';
-import { Config } from '../../interfaces/config';
 import { Component, Input, OnInit, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { Round } from 'src/app/interfaces/round';
 import { Subscription } from 'rxjs';
@@ -11,71 +10,42 @@ import { Subscription } from 'rxjs';
 })
 export class RoundComponent implements OnInit, OnDestroy {
 
-  @Input() round : Round | null;
-  @Input() config : Config;
-  @Input() gameTimePassed : number;
-  @Input() score: number;
+  public round: Round | null;
+  public score: number;
   public showHints: boolean;
 
-  @Output() roundComplete: EventEmitter<any> = new EventEmitter();
+  public scored: number;
+  public progressPercent: number = 0;
 
-  public scored : number;
-  public progressPercent : number = 0;
+  private guessed: boolean = false;
+  private sub: Subscription;
 
-  private currentRoundTime : number = 0;
-  private guessed : boolean = false;
-
-  private subs : Subscription[] = [];
-
-  constructor(private gameState: GameStateService) { }
+  constructor(
+    private gameState: GameStateService
+  ) {}
 
   ngOnInit(): void {
-    this.reset();
-
-    const s2 = this.gameState.showingHints.subscribe((v) => this.showHints = v);
-    this.subs.push(s2);
+    const config = this.gameState.previousConfig;
+    this.round = this.gameState.activeRound;
+    this.score = this.gameState.score;
+    if (this.round) {
+      this.progressPercent = Math.round( 100 * this.round.roundNumber / this.round.maxRounds);
+      this.scored = Math.round( 100 * this.score / config.count );
+    } else {
+      console.error("Round component got no round object");
+    }
+    this.sub = this.gameState.showingHints.subscribe((v) => this.showHints = v);
   }
 
   ngOnDestroy(): void {
-    this.subs.forEach((s) => s.unsubscribe());
-  }
-
-  ngOnChanges(): void {
-    if (this.round) {
-      this.reset();
-    }
-  }
-
-  private reset(): void {
-    if (this.round) {
-      this.guessed = false;
-      this.progressPercent = Math.round( 100 * this.round.roundNumber / this.round.maxRounds);
-      this.currentRoundTime = 0;
-      this.scored = Math.round( 100 * this.score / this.config.count );
-    }
-  }
-
-  get roundTime(): string {
-    return this.secondsToTimer(this.currentRoundTime);
-  }
-
-  get gameTime(): string {
-    return this.secondsToTimer(this.gameTimePassed  + this.currentRoundTime);
-  }
-
-  private secondsToTimer(s: number): string
-  {
-    const minutes = Math.floor(s / 60);
-    const seconds = s % 60;
-    return (""+minutes).padStart(2, '0') + ':' + (""+seconds).padStart(2, '0');
+    this.sub.unsubscribe();
   }
 
   public guess(day: number): void {
     if (this.guessed || this.round === null) return; // only one guess
     this.guessed = true;
     this.round.guess = day;
-    this.round.timed = this.currentRoundTime;
-    this.roundComplete.emit(this.round);
+    this.gameState.guessWasMade(this.round);
   }
 
 }

@@ -1,6 +1,6 @@
+import { GameStateService } from 'src/app/services/game-state.service';
 import { HighscoreService, List, Score } from './../../services/highscore.service';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Config } from 'src/app/interfaces/config';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'game-highscore',
@@ -9,24 +9,29 @@ import { Config } from 'src/app/interfaces/config';
 })
 export class HighscoreComponent implements OnInit {
 
-  @Input() config: Config;
   public list: List;
 
-  @Output() next: EventEmitter<any> = new EventEmitter();
-
-  constructor(private HighscoreService: HighscoreService) { }
+  constructor(
+    private HighscoreService: HighscoreService,
+    private gameState: GameStateService
+  ) { }
 
   ngOnInit(): void {
+    const config = this.gameState.previousConfig;
     this.HighscoreService
-      .list(this.config)
+      .list(config)
       .subscribe(
         (scores: Score[]) => {
           this.list = {
               name: "2022 x 8",
-              config: this.config,
+              config: config,
               scores: scores
             };
         }
       );
+  }
+
+  public done() {
+    this.gameState.restart();
   }
 }
