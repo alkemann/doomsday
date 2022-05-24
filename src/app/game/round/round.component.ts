@@ -1,19 +1,21 @@
+import { GameStateService } from './../../services/game-state.service';
 import { Config } from '../../interfaces/config';
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { Round } from 'src/app/interfaces/round';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'game-round',
   templateUrl: './round.component.html',
   styleUrls: ['./round.component.scss']
 })
-export class RoundComponent implements OnInit {
+export class RoundComponent implements OnInit, OnDestroy {
 
   @Input() round : Round | null;
   @Input() config : Config;
   @Input() gameTimePassed : number;
   @Input() score: number;
-  @Input() showHelp: boolean;
+  public showHints: boolean;
 
   @Output() roundComplete: EventEmitter<any> = new EventEmitter();
 
@@ -23,11 +25,19 @@ export class RoundComponent implements OnInit {
   private currentRoundTime : number = 0;
   private guessed : boolean = false;
 
+  private subs : Subscription[] = [];
 
-  constructor() { }
+  constructor(private gameState: GameStateService) { }
 
   ngOnInit(): void {
     this.reset();
+
+    const s2 = this.gameState.showingHints.subscribe((v) => this.showHints = v);
+    this.subs.push(s2);
+  }
+
+  ngOnDestroy(): void {
+    this.subs.forEach((s) => s.unsubscribe());
   }
 
   ngOnChanges(): void {

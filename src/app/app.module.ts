@@ -26,6 +26,7 @@ import { LoadingComponent } from './shared/loading/loading.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './services/in-memory-data.service';
+import { GameStateService } from './services/game-state.service';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,9 @@ import { InMemoryDataService } from './services/in-memory-data.service';
       registrationStrategy: 'registerWhenStable:30000'
     })
   ],
-  providers: [],
+  providers: [
+    GameStateService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

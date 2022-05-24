@@ -1,3 +1,4 @@
+import { GameStateService } from './services/game-state.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,7 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Doomsday';
-  public showrules : boolean = false;
-  public showhelp : boolean = false;
+  public constructor(public gameState : GameStateService) {}
+
 }

@@ -1,14 +1,16 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { GameStateService } from './../services/game-state.service';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Config } from '../interfaces/config';
 import { Round } from '../interfaces/round';
 import { States } from '../enums/states';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'doomsday-game',
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.scss']
 })
-export class GameComponent implements OnInit {
+export class GameComponent implements OnInit, OnDestroy {
 
   public config: Config = {
     startYear: 2022,
@@ -18,8 +20,9 @@ export class GameComponent implements OnInit {
     maxTime: 60
   }
 
-  @Input() showrules : boolean = false;
-  @Input() showhelp : boolean = false;
+  private subs : Subscription[] = [];
+  public showrules : boolean = false;
+  public showhints : boolean = false;
 
   public stateType = States;
   public state : States = States.SETUP;
@@ -34,9 +37,18 @@ export class GameComponent implements OnInit {
     "Jan", "Feb", "Mar", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Des"
   ];
 
-  constructor() {}
+  constructor(
+    private gameState: GameStateService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    const s1 = this.gameState.showingRules.subscribe((v) => this.showrules = v);
+    this.subs.push(s1);
+  }
+
+  ngOnDestroy(): void {
+    this.subs.forEach((s) => s.unsubscribe());
+  }
 
   restart(): void {
     this.state = States.SETUP;
