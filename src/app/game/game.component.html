@@ -1,9 +1,5 @@
 <div class="board" *ngIf="!showrules" [ngSwitch]="state" >
-    <game-setup
-        *ngSwitchCase="stateType.SETUP"
-        [config]="config"
-        (setupSaved)="configUpdated()"
-    ></game-setup>
+    <game-setup *ngSwitchCase="stateType.SETUP"></game-setup>
     <game-round
         *ngSwitchCase="stateType.ROUND"
         [round]="round"

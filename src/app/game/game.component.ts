@@ -22,7 +22,6 @@ export class GameComponent implements OnInit, OnDestroy {
 
   private subs : Subscription[] = [];
   public showrules : boolean = false;
-  public showhints : boolean = false;
 
   public stateType = States;
   public state : States = States.SETUP;
@@ -44,6 +43,11 @@ export class GameComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     const s1 = this.gameState.showingRules.subscribe((v) => this.showrules = v);
     this.subs.push(s1);
+    const s2 = this.gameState.config.subscribe((c) => {
+      this.config = c;
+      this.configUpdated();
+    });
+    this.subs.push(s2);
   }
 
   ngOnDestroy(): void {
