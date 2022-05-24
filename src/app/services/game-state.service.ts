@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { MatSlideToggleChange } from "@angular/material/slide-toggle";
-import { Subject } from "rxjs";
+import { BehaviorSubject, Subject } from "rxjs";
 
 
 @Injectable({
@@ -8,19 +8,15 @@ import { Subject } from "rxjs";
 })
 export class GameStateService {
 
-  private _showRules = false;
-  private _showingRulesSubject = new Subject<boolean>();
-  public get showingRules() : Subject<boolean> { return this._showingRulesSubject; }
+  private _showingRulesSubject = new BehaviorSubject<boolean>(false);
+  public get showingRules() : BehaviorSubject<boolean> { return this._showingRulesSubject; }
   public rulesToggle(event: MatSlideToggleChange) {
-    this._showRules = event.checked;
-    this._showingRulesSubject.next(this._showRules);
+    this._showingRulesSubject.next(event.checked);
   }
 
-  private _showHints = false;
-  private _showingHintsSubject = new Subject<boolean>();
-  public get showingHints() : Subject<boolean> { return this._showingHintsSubject; }
+  private _showingHintsSubject = new BehaviorSubject<boolean>(false);
+  public get showingHints() : BehaviorSubject<boolean> { return this._showingHintsSubject; }
   public hintsToggle(event: MatSlideToggleChange) {
-    this._showHints = event.checked;
-    this._showingHintsSubject.next(this._showHints);
+    this._showingHintsSubject.next(event.checked);
   };
 }
